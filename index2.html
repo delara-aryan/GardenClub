@@ -10,7 +10,7 @@
 				<img id="myImage" src="swimmingCat.jpg" alt="Swimming Cat" style="width:200px;height:200px;">
 			</div>
 			<div style="float:left; position:relative; left:1em;">
-				<h1>Matt Freedman</h1>
+				<h1 id="name" onmouseover="document.getElementById('name').innerHTML = 'MATT FREEDMAN'" onmouseout = "document.getElementById('name').innerHTML = 'Matt Freedman'">Matt Freedman</h1>
 				<p><div style="font-size:110%;"><b>Born:</b> 1990 <br /></div><div style="font-size:110%;font-family:Apple Chancery, cursive;"> "Every great developer you know got there by solving problems they were unqualified to solve until they actually did it."</div><p>
 			</div>
 		</div>
@@ -18,11 +18,20 @@
 			<h2>About Me:</h2>
 			<p>Here is a bunch of information about me.  I was born in Pittsburgh, PA in 1990.  I used to be a scuba instructor in Hawaii, but now I live in San Diego, CA.  I teach Java Programming to kids and it is a lot of fun.  I also don't have to worry about getting attacked by sharks on the job anymore. </p>
 			<h2>Hobbies</h2>
-			<ul>
+			<ul id="hobbies">
 				<li>SCUBA</li>
 				<li>Programming</li>
 				<li>Cooking</li>
 			</ul>
+			<form>
+				Add another item: <input type="text" id="input" name="newItem"> </br>
+				<input type="button" value="Submit" onclick="addItem()">
+			</form>
+			<script>
+				function addItem() {
+					document.getElementById('hobbies').insertAdjacentHTML('beforeend', "<li>"+document.getElementById('input').value+"</li>");
+				}
+			</script>
 			<h2>Favorite Movies</h2>
 			<ol>
 				<li>Jurassic Park</li>
@@ -30,7 +39,8 @@
 				<li>Indiana Jones</li>
 			</ol>
 			<h2>Favorite Joke:</h2>
-			<p>Why did the chicken cross the road?</br>To get to the other side!</p>
+			<p id="joke">Why did the chicken cross the road?</p>
+			<button type="button" onclick="document.getElementById('joke').innerHTML='Why did the chicken cross the road? </br> To get to the other side.'"> Click for punchline! </button>
 		</div>
 	</body>
 	
